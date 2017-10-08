@@ -1,0 +1,16 @@
+{
+  "name": "sales-report",
+  "version": "1.0.0",
+  "description": "Program to parse csv worksheet",
+  "main": "parseWkst.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Travis Gillespie",
+  "license": "ISC",
+  "dependencies": {
+    "array-to-csv": "^1.0.1",
+    "jquery": "^3.2.1",
+    "jsonfile": "^4.0.0"
+  }
+}

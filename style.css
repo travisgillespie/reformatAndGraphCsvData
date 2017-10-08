@@ -1,0 +1,50 @@
+body {
+  font-family: "Arial", sans-serif;
+}
+
+.bar {
+  /*fill: steelblue;*/
+}
+
+.bar:hover {
+  /*fill: brown;*/
+}
+
+.area {
+  fill: steelblue;
+  clip-path: url(#clip)
+}
+
+.axis {
+  font-size: 13px;
+}
+
+.axis--x path {
+  display: none;
+}
+
+.y-axis-red text {
+  fill: red;
+}
+
+.label {
+  font-size: 13px;
+}
+
+.toggleOff {
+  font-size: 10px;
+}
+
+.toggleOn {
+  font-size: 12px;
+}
+
+#title {
+    text-align: center;
+}
+
+.zoom {
+  cursor: move;
+  fill: none;
+  pointer-events: all;
+}
