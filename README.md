@@ -1,6 +1,8 @@
 # Sales Report Automation
 
-This guide will help you setup and run automation for the quarterly sales reports.
+This guide will help you setup and run automation for this app. I used Node.js and D3.js to automate quarterly sales reports. Node was used to parse, compare, and build data from various _csv_ files. D3 was used to display the report. This program can be downloaded and modified to fit your business needs.
+
+[![Graph png](./assets/d3.schemeRdYlGn[10].png?raw=true "D3 Graphs")](http://www.travisgillespie.com/assets/sprinklrApps/d3/d3_SalesReport/indexD3.html)
 
 ## Required Downloads
 *Steps 2-4: Open your terminal, and cd to the root directory _d3_\__SalesReport_
@@ -12,13 +14,16 @@ This guide will help you setup and run automation for the quarterly sales report
 
 4. Install NPM <a style="color:#0D6EE4" href="https://www.npmjs.com/package/jsonfile">jsonfile</a>. In your terminal type: _npm install jsonfile_.
 
-## Storing Files and Naming Conventions
-Two files are needed to run this report, they must be csv format, and stored in specific locations. A copy of both files are already stored in each location. These example files can be used to skip to the next section and try running the program.
-1. Download the quarterly user content report from Lyearn and store it in the following directory: d3_SalesReport > data > csvContentReport > <filename>
-###### * Note: This file must be named _User Content Report.csv_
 &nbsp;
-2. Download the most current global sales org chart master file. Navigate to the _HC_\__Reps_ tab, and save this active sheet as a csv file. Store the file in the following directory: d3_SalesReport > data > csvGlobalReport > <filename>
-###### * Note: This file must be named _2017 Global Sales Org Chart_\__HC_\__Reps.csv_
+# Node.js Steps
+## Storing Files and Naming Conventions
+Node can be used to cross-reference multiple files. This program uses csv files. The files should be stored in specific locations to keep your project organized. Node was used to read the csv files and store them as multidimensional arrays. This is how I cross-referenced the data. The code you write in _parseWkst.js_ will depend on the layout of your csv files.
+
+1. Store a csv file in the project directory: _e.g._ d3_SalesReport > data > csvContentReport > _fileName1.csv_
+###### * Note: The path to this file should be defined in _parseWkst.js_ on line 6.
+&nbsp;
+2. Store the csv file to be cross-referenced in the project directory: _e.g._ d3_SalesReport > data > csvGlobalReport > _fileName2.csv_
+###### * Note: The path to this file should be defined in _parseWkst.js_ on line 7.
 &nbsp;
 
 ## Running the program
@@ -27,13 +32,19 @@ Two files are needed to run this report, they must be csv format, and stored in 
 
 ## Retrieving Files
 Two files will be created after running the _parseWkst_ program.
-1. A csv file titled _userData2017.csv_ provides data that can be pasted into the _!Sales-Training-Weekly_ excel file. This data should be pasted into the _HC Reps_ tab. The _userData2017.csv_ can be found by navigating to the following directory:
-  * d3_SalesReport > data > dataCSV
-2. A json file titled _userData2017.json_ is a supplemental document. This file can be found by navigating to the following directory:
-  * d3_SalesReport > data > dataJSON
+2. A json file which will be used in _playground.js_ to build the D3 graph.
+###### * Note: The directory path and name can be defined in _parseWkst.js_ on line 42.
+&nbsp;  
+1. A csv file which will be used to display the data using D3.
+###### * Note: The directory path and name can be defined in _parseWkst.js_ on line 53.
 
-## D3.js Data Analysis
-The goal is to view the data via https server. Currently this data can be viewed via local drive.
+&nbsp;
+./objRegions.js
+./data/dataCSV/exampleData.csv
+# D3.js Steps
+## Data Analysis
+The goal is to use this template as a stepping stone to build and view your own data via https server. Currently an example can can be viewed
+from my <a style="color:#0D6EE4" href="http://www.travisgillespie.com/assets/sprinklrApps/d3/d3_SalesReport/indexD3.html">portfolio</a> or via your local drive by following these steps:
 1. Open your terminal and cd to the _d3_\__SalesReport_ directory.
 2. Type one of the following:
   * python -m SimpleHTTPServer
@@ -45,5 +56,9 @@ The goal is to view the data via https server. Currently this data can be viewed
   * localhost:&lt;port number>/index.html
     * e.g. localhost:8000/index.html
 
-###### * Note: An example file is being used to display the data. If you'd like to run a report and view that data, follow the steps preceding this section. Then navigate to _d3_\__SalesReport > barChart.js_, scroll down to line 15, copy the code that's commented out, and replace the code in line 16.
+###### * Note: Two example files are being used to display the data. If you'd like to run your own report and view that data, follow the steps preceding this section. Then:
+1. Navigate to _d3_\__SalesReport > index.html_, scroll down to line 18, replace the path and filename to match your json file path.
+
+
+2. Navigate to _d3_\__SalesReport > barChart.js_, scroll down to line 15, replace the path and filename to match your csv file path.
 &nbsp;
